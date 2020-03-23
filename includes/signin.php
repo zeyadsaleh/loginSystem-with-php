@@ -23,7 +23,9 @@
             exit();
         }
         else{
-            header("Location: ../elit/elit/index.html?signin=success");
+            session_start();
+            $_SESSION['username'] = $username;
+            header("Location: ../elit/elit/index.php?signin=success");
         }
     }
     ?>

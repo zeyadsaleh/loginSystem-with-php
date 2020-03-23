@@ -37,7 +37,9 @@ if (!mysqli_stmt_prepare($stmt, $sql) && !isset($_POST['submit'])) {
         else {
             mysqli_stmt_bind_param($stmt, "sssss", $fname, $lname, $email, $username, $hashedpwd);
             mysqli_stmt_execute($stmt);
-            header("Location: ../elit/elit/index.html?signup=success");
+            session_start();
+            $_SESSION['username'] = $username;
+            header("Location: ../elit/elit/index.php?signup=success");
             
         }
     }
